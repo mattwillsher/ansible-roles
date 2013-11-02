@@ -1,6 +1,7 @@
+# {{ ansible_managed }}
 [spacewalk]
 name=Spacewalk
 baseurl={{ baseurl|default('http://yum.spacewalkproject.org') }}/2.0/RHEL/6/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-spacewalk-2012
-enabled=1
+enabled={{ spacewalk_stable|default(1) }}
 gpgcheck=1

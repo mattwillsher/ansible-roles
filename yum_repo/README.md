@@ -54,6 +54,14 @@ The [JPackage](http://www.jpackage.org) repository is somewhat stale but still r
 
 * *name*: jpackage
 
+####Optional variables
+
+* *jpackage_version* Version of the JPackage repository to use. Defaults to 5.0
+
+Default enable repositories - set to 0 to disable
+
+* *jpackage_generic*
+
 ###Spacewalk
 
 The [Spacewalk](http://spacewalk.redhat.com) repository contains packages for the Spacewalk software, the upstream of Red Hat's Satellite server.
@@ -66,5 +74,5 @@ The [Spacewalk](http://spacewalk.redhat.com) repository contains packages for th
 
 Default enable repositories - set to 0 to disable
 
-* *spacewalk*
+* *spacewalk_stable*
 
