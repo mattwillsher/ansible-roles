@@ -1,0 +1,9 @@
+---
+  - yum: name=spacewalk-setup-postgresql state=present
+  - yum: name=spacewalk-postgresql state=present
+  - template: src=answers.j2 dest=/var/tmp/answers owner=root group=root mode=0600
+  - command: spacewalk-setup --disconnected --answer-file=/var/tmp/answers
+             creates=/var/satellite
+  - template: src=iptables.j2 dest=/etc/sysconfig/iptables owner=root group=root mode=0600
+    notify: restart_iptables
+
