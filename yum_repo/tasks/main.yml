@@ -1,0 +1,23 @@
+---
+- fail: msg='yum_repo role for yum package management only'
+  when: ansible_pkg_mgr != 'yum'
+
+- name: Copy $name repository file into place
+  template: src={{ item }} dest=/etc/yum.repos.d/{{ item }}
+              owner=root group=root mode=0644
+  with_items: repositories[name]['files']
+  when: repositories[name]['files'] is defined
+
+- name: Copy $name RPM GPG signing key into place
+  copy: src={{ repositories[name]['signing_key'] }}
+        dest=/etc/pki/rpm-gpg/{{ repositories[name]['signing_key'] }}
+        owner=root group=root mode=0644
+  when: repositories[name]['signing_key'] is defined
+
+- name: Install $name RPM GPG signing key into database
+  rpm_key: state=present key=/etc/pki/rpm-gpg/{{ repositories[name]['signing_key'] }}
+  when: repositories[name]['signing_key'] is defined
+
+- name: Install $name repository package
+  yum: name={{ repositories[name]['package'] }} state=latest
+  when: repositories[name]['package'] is defined

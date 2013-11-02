@@ -1,0 +1,16 @@
+---
+repositories:
+  epel:
+    files: 
+      - epel.repo
+      - epel-testing.repo
+    package: epel-release
+    signing_key: RPM-GPG-KEY-EPEL-6
+  jpackage:
+    files: 
+      - jpackage.repo
+    signing_key: RPM-GPG-KEY-jpackage
+  spacewalk:
+    files:
+      - spacewalk.repo
+    signing_key: RPM-GPG-KEY-spacewalk-2012

@@ -1,0 +1,36 @@
+# {{ ansible_managed }}
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/epel/6/$basearch
+{% else %}
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
+{% endif %}
+failovermethod=priority
+enabled={{ epel_stable|default(1) }}
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Debug
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/epel/6/$basearch/debug
+{% else %}
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-6&arch=$basearch
+{% endif %}
+failovermethod=priority
+enabled={{ epel_debuginfo|default(0) }}
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Source
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/epel/6/SRPMS
+{%- else %}
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-6&arch=$basearch
+{% endif %}
+failovermethod=priority
+enabled={{ epel_source|default(0)  }}
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=1

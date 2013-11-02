@@ -1,0 +1,11 @@
+# {{ ansible_managed }}
+[jpackage-{{ jpackage_version|default('5.0') }}-generic]
+name=JPackage {{ jpackage_version|default('5.0') }} generic
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/{{ jpackage_version|default('5.0') }}/generic/free/
+{% else %}
+mirrorlist=http://www.jpackage.org/mirrorlist.php?dist=generic&type=free&release={{ jpackage_version|default('5.0') }}
+{% endif %}
+gpgcheck=1
+enabled={{ jpackage_generic|default(1) }}
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-jpackage
