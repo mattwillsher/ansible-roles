@@ -23,7 +23,7 @@ Supported repositories
 
 ###EPEL
 
-(Extra Packages for Enterprise Linux)[http://fedoraproject.org/wiki/EPEL]. Current supports 6.x series
+[Extra Packages for Enterprise Linux](http://fedoraproject.org/wiki/EPEL). Current supports 6.x series
 distributions.
 
 #### Required variables
@@ -48,7 +48,7 @@ Disabled repositories - set to 1 to enable
 
 ###JPackage
 
-The (JPackage)[http://www.jpackage.org] repository is somewhat stale but still required by Spacewalk
+The [JPackage](http://www.jpackage.org) repository is somewhat stale but still required by Spacewalk
 
 #### Required variables
 
@@ -56,7 +56,7 @@ The (JPackage)[http://www.jpackage.org] repository is somewhat stale but still r
 
 ###Spacewalk
 
-The (Spacewalk)[http://spacewalk.redhat.com] repository contains packages for the Spacewalk software, the upstream of Red Hat's Satellite server.
+The [Spacewalk](http://spacewalk.redhat.com) repository contains packages for the Spacewalk software, the upstream of Red Hat's Satellite server.
 
 #### Required variables
 
