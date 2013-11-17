@@ -1,0 +1,35 @@
+[ius]
+name=IUS Community Packages for Enterprise Linux 6 - $basearch
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/ius/stable/CentOS/6/$basearch/
+{% else %}
+mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-centos6&arch=$basearch
+{% endif %}
+failovermethod=priority
+enabled={{ ius_stable|default(1) }}
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+
+[ius-debuginfo]
+name=IUS Community Packages for Enterprise Linux 6 - $basearch - Debug
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/ius/stable/CentOS/6/$basearch/debuginfo
+{% else %}
+mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-centos6-debuginfo&arch=$basearch
+{% endif %}
+failovermethod=priority
+enabled={{ ius_debuginfo|default(0) }}
+gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+gpgcheck=1
+
+[ius-source]
+name=IUS Community Packages for Enterprise Linux 6 - $basearch - Source
+{% if baseurl is defined %}
+baseurl={{ baseurl }}/ius/stable/CentOS/6/SRPMS
+{% else %}
+mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-centos6-source&arch=$basearch
+{% endif %}
+failovermethod=priority
+enabled={{ ius_source|default(0) }}
+gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+gpgcheck=1

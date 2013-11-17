@@ -14,3 +14,16 @@ repositories:
     files:
       - spacewalk.repo
     signing_key: RPM-GPG-KEY-spacewalk-2012
+  ius:
+    files:
+      - ius.repo
+    package: ius-release
+    signing_key: IUS-COMMUNITY-GPG-KEY
+  nginx:
+    files:
+      - nginx.repo
+  puppetlabs:
+    files:
+      - puppetlabs.repo
+    signing_key: RPM-GPG-KEY-puppetlabs
+    package: puppetlabs-release

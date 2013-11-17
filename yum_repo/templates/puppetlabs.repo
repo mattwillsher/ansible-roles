@@ -1,0 +1,42 @@
+[puppetlabs-products]
+name=Puppet Labs Products El {{ ansible_distribution_version|float|round(0, 'floor')|int }} - $basearch
+baseurl={{ baseurl|default('http://yum.puppetlabs.com') }}/el/{{ ansible_distribution_version|float|round(0, 'floor')|int }}/products/$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+enabled={{ puppetlabs_products_enabled|default('1') }}
+gpgcheck=1
+
+[puppetlabs-deps]
+name=Puppet Labs Dependencies El {{ ansible_distribution_version|float|round(0, 'floor')|int }} - $basearch
+baseurl={{ baseurl|default('http://yum.puppetlabs.com') }}/el/{{ ansible_distribution_version|float|round(0, 'floor')|int }}/dependencies/$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+enabled={{ puppetlabs_deps_enabled|default('1') }}
+gpgcheck=1
+
+[puppetlabs-devel]
+name=Puppet Labs Devel El {{ ansible_distribution_version|float|round(0, 'floor')|int }} - $basearch
+baseurl={{ baseurl|default('http://yum.puppetlabs.com') }}/el/{{ ansible_distribution_version|float|round(0, 'floor')|int }}/devel/$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+enabled={{ puppetlabs_devel|default('0') }}
+gpgcheck=1
+
+[puppetlabs-products-source]
+name=Puppet Labs Products El {{ ansible_distribution_version|float|round(0, 'floor')|int }} - $basearch - Source
+baseurl={{ baseurl|default('http://yum.puppetlabs.com') }}/el/{{ ansible_distribution_version|float|round(0, 'floor')|int }}/products/SRPMS
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+failovermethod=priority
+enabled={{ puppetlabs_products_source|default('0') }}
+gpgcheck=1
+
+[puppetlabs-deps-source]
+name=Puppet Labs Source Dependencies El {{ ansible_distribution_version|float|round(0, 'floor')|int }} - $basearch - Source
+baseurl={{ baseurl|default('http://yum.puppetlabs.com') }}/el/{{ ansible_distribution_version|float|round(0, 'floor')|int }}/dependencies/SRPMS
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+enabled={{ puppetlabs_deps_source|default('0') }}
+gpgcheck=1
+
+[puppetlabs-devel-source]
+name=Puppet Labs Devel El {{ ansible_distribution_version|float|round(0, 'floor')|int }} - $basearch - Source
+baseurl={{ baseurl|default('http://yum.puppetlabs.com') }}/el/{{ ansible_distribution_version|float|round(0, 'floor')|int }}/devel/SRPMS
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+enabled={{ puppetlabs_devel_source|default('0') }}
+gpgcheck=1
